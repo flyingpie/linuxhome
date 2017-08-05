@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Cleaning up home..."
-rm -fr .git .gitconfig .linuxhome.sh .local .ssh .bashrc .profile
+rm -fr .git .gitconfig .linuxhome.sh .local .ssh/authorized_keys .bashrc .profile
 
 echo "Init..."
 git init
