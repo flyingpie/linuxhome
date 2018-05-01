@@ -1,0 +1,3 @@
+BRANCH=$(git symbolic-ref --short HEAD)
+
+git push --set-upstream origin $BRANCH
