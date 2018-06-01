@@ -7,6 +7,7 @@ docker run --name samba -d \
   -p 139:139 \
   -p 445:445 \
   -v /:/data \
+  --network host \
   --restart always \
   dperson/samba \
     -n \
