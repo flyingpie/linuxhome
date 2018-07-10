@@ -17,3 +17,11 @@ git checkout master
 
 echo "Reset..."
 git reset origin/master --hard
+
+echo "Installing required packages..."
+sudo apt install tmux zsh -y
+
+echo "Setting default shell..."
+chsh -s /bin/zsh
+
+echo "Done!"
