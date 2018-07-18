@@ -1,0 +1,1 @@
+docker ps --all --format "table {{.Names}}\t{{.Image}}\t{{.Status}}" | sort
