@@ -36,6 +36,6 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-[[ $TERM != "screen" ]] && exec tmux
+[[ $TERM != "screen" ]] && exec tmux attach
 
 export PATH=$HOME/.local/bin:$PATH
