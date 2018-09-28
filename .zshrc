@@ -40,6 +40,6 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 alias ll='ls --hide=".*" -l --color=auto --human-readable'
 alias lll='ls -Al --color=auto --human-readable'
 
-[[ $TERM != "screen" ]] && exec tmux
+[[ $TERM != "screen" ]] && exec tmux attach
 
 export PATH=$HOME/.local/bin:$PATH
