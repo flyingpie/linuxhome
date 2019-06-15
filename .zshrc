@@ -37,8 +37,8 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # Aliases
-alias ll='ls --hide=".*" -l --color=auto --human-readable'
-alias lll='ls -Al --color=auto --human-readable'
+alias ls='ls --hide=".*" -l --color=auto --human-readable'
+alias ll='ls -Al --color=auto --human-readable'
 
 [[ $TERM != "screen" ]] && exec tmux attach
 
