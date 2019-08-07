@@ -1,13 +1,12 @@
 # Set up the prompt
 
+autoload -Uz colors && colors
 autoload -Uz promptinit
+autoload -Uz vcs_info
+
 promptinit
-prompt adam1
 
 setopt histignorealldups sharehistory
-
-# Use emacs keybindings even if our EDITOR is set to vi
-bindkey -e
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
@@ -40,6 +39,20 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 alias ls='ls --hide=".*" -l --color=auto --human-readable'
 alias ll='ls -Al --color=auto --human-readable'
 
+export PATH=$HOME/.local/bin:$PATH
+
+# Load version control information
+precmd() { vcs_info }
+
+# Format the vcs_info_msg_0_ variable
+zstyle ':vcs_info:git:*' formats '%b'
+ 
+# Set up the prompt with git branch name
+setopt PROMPT_SUBST
+NEWLINE=$'\n'
+PROMPT='%~ %{$fg[cyan]%}${vcs_info_msg_0_}$reset_color${NEWLINE}> '
+#PROMPT='%n in ${PWD/#$HOME/~} ${vcs_info_msg_0_} > '
+
+# Start or attach to TMUX
 [[ $TERM != "screen" ]] && exec tmux attach
 
-export PATH=$HOME/.local/bin:$PATH
