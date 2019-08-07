@@ -42,16 +42,17 @@ alias ll='ls -Al --color=auto --human-readable'
 export PATH=$HOME/.local/bin:$PATH
 
 # Load version control information
-precmd() { vcs_info }
+#precmd() { vcs_info }
 
 # Format the vcs_info_msg_0_ variable
-zstyle ':vcs_info:git:*' formats '%b'
+#zstyle ':vcs_info:git:*' formats '%b'
  
 # Set up the prompt with git branch name
-setopt PROMPT_SUBST
-NEWLINE=$'\n'
-PROMPT='%~ %{$fg[cyan]%}${vcs_info_msg_0_}$reset_color${NEWLINE}> '
-#PROMPT='%n in ${PWD/#$HOME/~} ${vcs_info_msg_0_} > '
+#setopt PROMPT_SUBST
+#NEWLINE=$'\n'
+#PROMPT='%F{white}%K{blue}%n@%m$reset_color %~ %F{cyan}${vcs_info_msg_0_}$reset_color${NEWLINE}> '
+
+prompt adam1
 
 # Start or attach to TMUX
 [[ $TERM != "screen" ]] && exec tmux attach
