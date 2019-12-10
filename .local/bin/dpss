@@ -1,1 +1,1 @@
-docker ps --all --format "table {{.Names}}\t{{.Image}}\t{{.Status}}" | sort
+docker ps --all --format "table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}" | grep -v ^NAMES | sort

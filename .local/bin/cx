@@ -1,1 +1,2 @@
-sudo chmod +x $1
+#sudo chmod +x $1
+chmod +x *.sh

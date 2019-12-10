@@ -3,3 +3,5 @@
 	name = Marco van den Oever
 [push]
 	default = simple
+[credential]
+	helper = store
