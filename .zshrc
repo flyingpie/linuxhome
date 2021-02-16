@@ -39,20 +39,29 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 alias ls='ls --hide=".*" -l --color=auto --human-readable'
 alias ll='ls -Al --color=auto --human-readable'
 
+alias dsl='docker service logs -f --tail 100'
+alias dsi='docker service inspect'
+alias dsls='docker service ls'
+
+alias dps='docker ps --all --format "table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.ID}}" | grep -v ^NAMES | sort'
+alias dex='docker exec -it'
+
+alias dni='docker node inspect'
+alias dnls='docker node ls'
+
 export PATH=$HOME/.local/bin:$PATH
 
 # Load version control information
-#precmd() { vcs_info }
+precmd() { vcs_info }
 
 # Format the vcs_info_msg_0_ variable
-#zstyle ':vcs_info:git:*' formats '%b'
- 
-# Set up the prompt with git branch name
-#setopt PROMPT_SUBST
-#NEWLINE=$'\n'
-#PROMPT='%F{white}%K{blue}%n@%m$reset_color %~ %F{cyan}${vcs_info_msg_0_}$reset_color${NEWLINE}> '
+zstyle ':vcs_info:git:*' formats '%b'
 
-prompt adam1
+# Set up the prompt with git branch name
+setopt PROMPT_SUBST
+NEWLINE=$'\n'
+HOSTNAME=$(hostname)
+PROMPT='%F{white}%n@${HOSTNAME}$reset_color %F{green}${PWD/#$HOME/~} %F{cyan}${vcs_info_msg_0_} $reset_color ${NEWLINE}> '
 
 # Start or attach to TMUX
 [[ $TERM != "screen" ]] && exec tmux attach
