@@ -42,12 +42,17 @@ alias ll='ls -Al --color=auto --human-readable'
 alias dsl='docker service logs -f --tail 100'
 alias dsi='docker service inspect'
 alias dsls='docker service ls'
+alias dsps='docker service ps'
 
-alias dps='docker ps --all --format "table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.ID}}" | grep -v ^NAMES | sort'
+#alias dps='docker ps --all --format "table {{.Names}}\t{{.Status}}\t{{.ID}}" | grep -v ^NAMES | grep "^[^.]*$" | sort'
+alias dps='docker ps --all --format "table {{.Names}}\t{{.Status}}\t{{.Image}}\t{{.ID}}" | grep -v ^NAMES | sort'
 alias dex='docker exec -it'
 
 alias dni='docker node inspect'
 alias dnls='docker node ls'
+alias dnlabels='docker node inspect --format="{{.Spec.Labels}}"'
+
+alias zz="source ~/.zshrc;echo \"Reloaded zshrc\""
 
 export PATH=$HOME/.local/bin:$PATH
 
